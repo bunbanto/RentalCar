@@ -1,8 +1,14 @@
+import axios from "axios";
+
 import type { Car, CarFilters, CarsResponse, RentalPayload } from "./types";
 
-export const API_BASE_URL = "https://car-rental-api.goit.global";
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const CARS_LIMIT = 12;
 export const PRICE_OPTIONS = ["30", "40", "50", "60", "70", "80"];
+
+const rentalCarApi = axios.create({
+  baseURL: API_BASE_URL,
+});
 
 function buildSearchParams(filters: CarFilters, page = 1, limit = CARS_LIMIT) {
   const params = new URLSearchParams({
@@ -19,50 +25,31 @@ function buildSearchParams(filters: CarFilters, page = 1, limit = CARS_LIMIT) {
   return params;
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, init);
-
-  if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}`);
-  }
-
-  return response.json() as Promise<T>;
-}
-
 export async function fetchCars(filters: CarFilters = {}, page = 1) {
   const params = buildSearchParams(filters, page);
-
-  return request<CarsResponse>(`/cars?${params.toString()}`, {
-    next: { revalidate: 60 },
+  const { data } = await rentalCarApi.get<CarsResponse>("/cars", {
+    params,
   });
+
+  return data;
 }
 
 export async function fetchBrands() {
-  return request<string[]>("/brands", {
-    next: { revalidate: 3600 },
-  });
+  const { data } = await rentalCarApi.get<string[]>("/brands");
+
+  return data;
 }
 
 export async function fetchCarById(id: string) {
-  return request<Car>(`/cars/${id}`, {
-    next: { revalidate: 60 },
-  });
+  const { data } = await rentalCarApi.get<Car>(`/cars/${id}`);
+
+  return data;
 }
 
 export async function createRental(payload: RentalPayload) {
-  const response = await fetch("/api/rentals", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  const { data } = await axios.post<{ ok: true }>("/api/rentals", payload);
 
-  if (!response.ok) {
-    throw new Error("Rental request failed");
-  }
-
-  return response.json() as Promise<{ ok: true }>;
+  return data;
 }
 
 export function formatMileage(value: number) {
