@@ -156,13 +156,19 @@ export function CatalogClient({ brands }: CatalogClientProps) {
 
       {hasNextPage && (
         <button
-          className={styles.loadMoreButton}
+          className={`${common.button} ${styles.loadMoreButton}`}
           type="button"
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >
-          {isFetchingNextPage ? "Loading..." : "Load More"}
+          Load More
         </button>
+      )}
+
+      {isFetchingNextPage && (
+        <div className={styles.viewportLoader} role="status" aria-live="polite">
+          <span />
+        </div>
       )}
     </>
   );

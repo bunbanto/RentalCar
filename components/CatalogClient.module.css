@@ -72,17 +72,47 @@
 
 .loadMoreButton {
   display: block;
+  min-width: 156px;
   margin: 80px auto 0;
-  border: 0;
+  border: 1px solid var(--accent);
   color: var(--accent);
-  background: transparent;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  background: #ffffff;
 }
 
-.loadMoreButton:hover {
+.loadMoreButton:hover,
+.loadMoreButton:focus-visible {
+  border-color: var(--accent-hover);
   color: var(--accent-hover);
+  background: #ffffff;
+}
+
+.viewportLoader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 40;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.16);
+  transform: translate(-50%, -50%);
+}
+
+.viewportLoader span {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #d7e3ff;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
