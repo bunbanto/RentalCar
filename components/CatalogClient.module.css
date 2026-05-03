@@ -1,0 +1,88 @@
+.filterBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.filterBar label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterBar span,
+.filterBar legend {
+  color: var(--muted-light);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+.filterBar select,
+.filterBar input {
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text);
+  background: var(--surface-soft);
+  outline: none;
+}
+
+.filterBar select {
+  width: 204px;
+}
+
+.filterBar fieldset {
+  display: grid;
+  grid-template-columns: 160px 160px;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.filterBar legend {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+.filterBar fieldset input:first-of-type {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid var(--line);
+}
+
+.filterBar fieldset input:last-of-type {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.filterSubmit {
+  min-width: 156px;
+}
+
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 276px);
+  gap: 48px 29px;
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 80px auto 0;
+  border: 0;
+  color: var(--accent);
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.loadMoreButton:hover {
+  color: var(--accent-hover);
+}

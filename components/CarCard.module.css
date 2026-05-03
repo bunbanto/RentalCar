@@ -1,0 +1,79 @@
+.carCard {
+  display: flex;
+  min-height: 424px;
+  flex-direction: column;
+}
+
+.carImageWrap {
+  position: relative;
+  width: 276px;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.carImage {
+  object-fit: cover;
+}
+
+.carCardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.carCardHead h2,
+.carCardHead p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.carCardHead h2 {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carCardHead span {
+  color: var(--accent);
+}
+
+.carMeta {
+  display: flex;
+  min-height: 40px;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 8px 0 28px;
+  padding: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.33;
+  list-style: none;
+}
+
+.carMeta li {
+  position: relative;
+}
+
+.carMeta li:not(:last-child)::after {
+  position: absolute;
+  top: 0;
+  right: -7px;
+  width: 1px;
+  height: 16px;
+  background: rgba(18, 20, 23, 0.1);
+  content: "";
+}
+
+.cardButton {
+  width: 100%;
+  margin-top: auto;
+}

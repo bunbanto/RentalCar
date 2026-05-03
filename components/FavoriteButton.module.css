@@ -1,0 +1,20 @@
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.favoriteButton svg {
+  transition:
+    color 160ms ease,
+    fill 160ms ease,
+    transform 160ms ease;
+}
+
+.favoriteButton:hover svg,
+.favoriteButton.isFavorite svg {
+  color: var(--accent);
+  fill: currentColor;
+  transform: scale(1.05);
+}

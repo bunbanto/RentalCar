@@ -1,0 +1,58 @@
+.rentalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 640px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 32px;
+}
+
+.formIntro {
+  margin-bottom: 10px;
+}
+
+.formIntro h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.formIntro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rentalForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rentalForm label span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.rentalForm input,
+.rentalForm textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--text);
+  background: var(--surface-soft);
+  outline: none;
+}
+
+.rentalForm textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  align-self: center;
+  min-width: 156px;
+  margin-top: 10px;
+}

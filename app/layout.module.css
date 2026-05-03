@@ -1,0 +1,40 @@
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header);
+  border-bottom: 1px solid rgba(16, 24, 40, 0.06);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.mainNav {
+  display: flex;
+  gap: 32px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mainNav a {
+  transition: color 160ms ease;
+}
+
+.mainNav a:hover {
+  color: var(--accent-hover);
+}
