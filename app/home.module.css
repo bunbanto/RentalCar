@@ -10,7 +10,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(12, 16, 26, 0.06), rgba(12, 16, 26, 0.82)),
-    url("https://ac.goit.global/car-rental-task/9584-ai.jpg") center / cover;
+    url("/hero-car.png") center / cover;
 }
 
 .heroContent {
