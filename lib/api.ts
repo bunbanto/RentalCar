@@ -6,6 +6,14 @@ export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const CARS_LIMIT = 12;
 export const PRICE_OPTIONS = ["30", "40", "50", "60", "70", "80"];
 
+function getApiBaseUrl() {
+  if (!API_BASE_URL) {
+    throw new Error("Missing NEXT_PUBLIC_API_BASE_URL environment variable");
+  }
+
+  return API_BASE_URL;
+}
+
 const rentalCarApi = axios.create({
   baseURL: API_BASE_URL,
 });
@@ -28,6 +36,7 @@ function buildSearchParams(filters: CarFilters, page = 1, limit = CARS_LIMIT) {
 export async function fetchCars(filters: CarFilters = {}, page = 1) {
   const params = buildSearchParams(filters, page);
   const { data } = await rentalCarApi.get<CarsResponse>("/cars", {
+    baseURL: getApiBaseUrl(),
     params,
   });
 
@@ -35,13 +44,17 @@ export async function fetchCars(filters: CarFilters = {}, page = 1) {
 }
 
 export async function fetchBrands() {
-  const { data } = await rentalCarApi.get<string[]>("/brands");
+  const { data } = await rentalCarApi.get<string[]>("/brands", {
+    baseURL: getApiBaseUrl(),
+  });
 
   return data;
 }
 
 export async function fetchCarById(id: string) {
-  const { data } = await rentalCarApi.get<Car>(`/cars/${id}`);
+  const { data } = await rentalCarApi.get<Car>(`/cars/${id}`, {
+    baseURL: getApiBaseUrl(),
+  });
 
   return data;
 }

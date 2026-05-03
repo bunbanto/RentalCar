@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: "Browse and filter cars available for rental.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function CatalogPage() {
   const brands = await fetchBrands();
 
