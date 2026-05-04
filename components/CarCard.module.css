@@ -6,8 +6,8 @@
 
 .carImageWrap {
   position: relative;
-  width: 276px;
-  height: 268px;
+  width: 100%;
+  aspect-ratio: 276 / 268;
   overflow: hidden;
   border-radius: 14px;
   background: var(--surface-soft);
@@ -76,4 +76,18 @@
 .cardButton {
   width: 100%;
   margin-top: auto;
+}
+
+@media (max-width: 767px) {
+  .carCard {
+    min-height: 0;
+  }
+
+  .carImageWrap {
+    aspect-ratio: 343 / 280;
+  }
+
+  .carMeta {
+    margin-bottom: 24px;
+  }
 }

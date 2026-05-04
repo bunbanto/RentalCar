@@ -63,7 +63,9 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
             className={styles.detailsImage}
           />
         </div>
-        <RentalForm carId={car.id} />
+        <div className={styles.desktopRentalForm}>
+          <RentalForm carId={car.id} />
+        </div>
       </section>
 
       <section className={styles.detailsContent}>
@@ -132,6 +134,10 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
             ))}
           </ul>
         </div>
+      </section>
+
+      <section className={styles.mobileRentalForm}>
+        <RentalForm carId={car.id} />
       </section>
     </main>
   );

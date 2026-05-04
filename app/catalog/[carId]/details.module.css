@@ -1,6 +1,6 @@
 .detailsPage {
   display: grid;
-  grid-template-columns: 640px 1fr;
+  grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
   gap: 72px;
   padding: 84px 0 104px;
 }
@@ -13,8 +13,8 @@
 
 .detailsImageWrap {
   position: relative;
-  width: 640px;
-  height: 512px;
+  width: 100%;
+  aspect-ratio: 640 / 512;
   overflow: hidden;
   border-radius: 19px;
   background: var(--surface-soft);
@@ -22,6 +22,10 @@
 
 .detailsImage {
   object-fit: cover;
+}
+
+.mobileRentalForm {
+  display: none;
 }
 
 .detailsContent {
@@ -129,4 +133,97 @@
 .detailsList svg {
   flex: 0 0 auto;
   color: var(--accent);
+}
+
+@media (max-width: 1180px) {
+  .detailsPage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+    max-width: 760px;
+  }
+
+  .desktopRentalForm {
+    display: none;
+  }
+
+  .mobileRentalForm {
+    display: block;
+  }
+
+  .detailsContent {
+    padding-top: 0;
+  }
+
+  .detailsDescription {
+    margin-bottom: 52px;
+  }
+
+  .detailsSection {
+    margin-top: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detailsPage {
+    gap: 36px;
+    padding: 40px 0 72px;
+  }
+
+  .detailsMedia {
+    gap: 28px;
+  }
+
+  .detailsImageWrap {
+    aspect-ratio: 343 / 260;
+    border-radius: 14px;
+  }
+
+  .detailsTitleBlock h1 {
+    font-size: 22px;
+  }
+
+  .detailsTop {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .detailsFavoriteButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .detailsLocation {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .detailsLocation span {
+    width: 100%;
+    margin-left: 24px;
+  }
+
+  .detailsPrice {
+    margin-bottom: 24px;
+  }
+
+  .detailsDescription {
+    margin-bottom: 40px;
+  }
+
+  .detailsSection {
+    margin-top: 40px;
+  }
+
+  .detailsSection h2 {
+    font-size: 18px;
+  }
+
+  .detailsList {
+    gap: 12px;
+  }
+
+  .detailsList li {
+    align-items: flex-start;
+    font-size: 15px;
+  }
 }

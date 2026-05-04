@@ -38,3 +38,18 @@
 .mainNav a:hover {
   color: var(--accent-hover);
 }
+
+@media (max-width: 767px) {
+  .headerInner {
+    min-height: 64px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .mainNav {
+    gap: 18px;
+    font-size: 15px;
+  }
+}

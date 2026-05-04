@@ -1,3 +1,15 @@
 .catalogPage {
   padding: 84px 0 124px;
 }
+
+@media (max-width: 1023px) {
+  .catalogPage {
+    padding: 64px 0 96px;
+  }
+}
+
+@media (max-width: 767px) {
+  .catalogPage {
+    padding: 40px 0 72px;
+  }
+}
